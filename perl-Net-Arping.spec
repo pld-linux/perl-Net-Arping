@@ -1,17 +1,20 @@
+#
+# Conditional build:
+%bcond_without	tests	# do perform "make test"
+#
 %include	/usr/lib/rpm/macros.perl
 %define	pdir	Net
 %define	pnam	Arping
 Summary:	Net::Arping - Ping remote host by ARP packets
 Summary(pl.UTF-8):	Net::Arping - Pingowanie zdalnego hosta poprzez pakiety ARP
 Name:		perl-Net-Arping
-Version:	0.02
+Version:	0.03
 Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/Net/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	c4d60bb746995f5c4ec827f6fc865ed8
-Patch0:		%{name}-libnet11.patch
+Source0:	http://www.cpan.org/modules/by-authors/id/R/RA/RADEK/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	bf26415f1406dec2689d5e8aa3ca2744
 URL:		http://search.cpan.org/dist/Net-Arping/Arping.pm
 BuildRequires:	libnet-devel
 BuildRequires:	libpcap-devel
@@ -29,7 +32,6 @@ The program must be run as root or be setuid to root.
 
 %prep
 %setup -q -n %{pdir}-%{pnam}-%{version}
-%patch0 -p1
 
 %build
 %{__perl} Makefile.PL \
@@ -37,7 +39,7 @@ The program must be run as root or be setuid to root.
 %{__make} \
 	OPTIMIZE="%{rpmcflags}"
 
-# "make test" removed -- requires root privileges
+%{__make} test
 
 %install
 rm -rf $RPM_BUILD_ROOT
