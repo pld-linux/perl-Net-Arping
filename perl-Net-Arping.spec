@@ -9,7 +9,7 @@ Summary:	Net::Arping - Ping remote host by ARP packets
 Summary(pl.UTF-8):	Net::Arping - Pingowanie zdalnego hosta przy użyciu pakietów ARP
 Name:		perl-Net-Arping
 Version:	0.03
-Release:	4
+Release:	5
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
