@@ -8,13 +8,14 @@
 Summary:	Net::Arping - Ping remote host by ARP packets
 Summary(pl.UTF-8):	Net::Arping - Pingowanie zdalnego hosta przy użyciu pakietów ARP
 Name:		perl-Net-Arping
-Version:	0.03
-Release:	14
+%define	ver	0.03_01
+Version:	%(echo %{ver} | tr _ .)
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/R/RA/RADEK/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	bf26415f1406dec2689d5e8aa3ca2744
+Source0:	http://www.cpan.org/modules/by-authors/id/R/RA/RADEK/%{pdir}-%{pnam}-%{ver}.tar.gz
+# Source0-md5:	bea5ef9991229c45d483e841281aa125
 URL:		http://search.cpan.org/dist/Net-Arping/
 BuildRequires:	libnet-devel
 BuildRequires:	libpcap-devel
@@ -35,7 +36,7 @@ poprzez wysyłanie pakietów ARP.
 Program musi być uruchamiany przez roota lub mieć ustawiony suid root.
 
 %prep
-%setup -q -n %{pdir}-%{pnam}-%{version}
+%setup -q -n %{pdir}-%{pnam}-%{ver}
 
 %build
 %{__perl} Makefile.PL \
