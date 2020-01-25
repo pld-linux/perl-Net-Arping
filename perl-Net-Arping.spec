@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests	# do perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	Net
 %define	pnam	Arping
 Summary:	Net::Arping - Ping remote host by ARP packets
